@@ -4,9 +4,10 @@ import MovieCard from './MovieCard';
 const MovieList = ({ movies }) => {
   return (
     <Row>
-      {movies.map((movie, index) => (
+      {movies.map((movie) => (
         <MovieCard
-          key={index}
+          key={movie.id}
+          id={movie.id}
           title={movie.title}
           description={movie.description}
           posterURL={movie.posterURL}

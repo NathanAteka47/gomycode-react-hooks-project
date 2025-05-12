@@ -7,7 +7,8 @@ const AddMovie = ({ onAddMovie }) => {
     title: '',
     description: '',
     posterURL: '',
-    rating: 0
+    rating: 0,
+    trailer: ''
   });
 
   const handleClose = () => setShow(false);
@@ -28,7 +29,8 @@ const AddMovie = ({ onAddMovie }) => {
       title: '',
       description: '',
       posterURL: '',
-      rating: 0
+      rating: 0,
+      trailer: ''
     });
     handleClose();
   };
@@ -45,7 +47,7 @@ const AddMovie = ({ onAddMovie }) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="title">
+            <Form.Group controlId="title" className="mb-3">
               <Form.Label>Title</Form.Label>
               <Form.Control
                 type="text"
@@ -55,7 +57,7 @@ const AddMovie = ({ onAddMovie }) => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="description">
+            <Form.Group controlId="description" className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
@@ -65,7 +67,7 @@ const AddMovie = ({ onAddMovie }) => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="posterURL">
+            <Form.Group controlId="posterURL" className="mb-3">
               <Form.Label>Poster URL</Form.Label>
               <Form.Control
                 type="url"
@@ -75,7 +77,7 @@ const AddMovie = ({ onAddMovie }) => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="rating">
+            <Form.Group controlId="rating" className="mb-3">
               <Form.Label>Rating (0-10)</Form.Label>
               <Form.Control
                 type="number"
@@ -87,7 +89,18 @@ const AddMovie = ({ onAddMovie }) => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit" style={{ marginTop: '10px' }}>
+            <Form.Group controlId="trailer" className="mb-3">
+              <Form.Label>Trailer Embed URL</Form.Label>
+              <Form.Control
+                type="url"
+                name="trailer"
+                placeholder="https://www.youtube.com/embed/VIDEO_ID"
+                value={newMovie.trailer}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="mt-2">
               Add Movie
             </Button>
           </Form>
